@@ -1,3 +1,4 @@
+import { RestClientService } from './../core/services/rest-client.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class TicketsService {
 
-  constructor() { }
+  constructor(private restClientService: RestClientService) { }
+
+  public getTickets() {
+    return this.restClientService.get<any>('tickets?pageNumber=1&pageSize=10');
+  }
 }
