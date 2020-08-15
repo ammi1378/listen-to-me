@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tickets.component.scss']
 })
 export class TicketsComponent implements OnInit {
-
+  public tickets = [];
   constructor() { }
 
   ngOnInit(): void {

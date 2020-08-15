@@ -1,1 +1,17 @@
-<p>tickets works!</p>
+<div class="container" *ngIf="tickets">
+  <ng-template #noTicketHeader>
+    <h2 class="page-header">
+      Please fill a ticket!
+    </h2>
+  </ng-template>
+  <div class="container-header" *ngIf="tickets.length; else noTicketHeader">
+    <h2 class="page-header">
+      Welcome to listen to me ticketing system.<br />
+      Please insert your email to begin.
+    </h2>
+  </div>
+
+  <div class="container-body">
+      
+  </div>
+</div>

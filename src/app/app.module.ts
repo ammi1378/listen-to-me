@@ -16,7 +16,8 @@ import { TicketsComponent } from './tickets/tickets.component';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    TicketsComponent
+    TicketsComponent,
+
   ],
   imports: [
     BrowserModule,
