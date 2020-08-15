@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserIdentityService } from '../core/services/user-identity.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class WelcomeComponent implements OnInit {
     Validators.email,
   ]);
 
-  constructor(private userIdentityService: UserIdentityService) {}
+  constructor(private userIdentityService: UserIdentityService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -21,6 +22,7 @@ export class WelcomeComponent implements OnInit {
     if (this.emailFormControl.valid) {
       const email = this.emailFormControl.value;
       this.userIdentityService.saveUserEmail(email);
+      this.router.navigate(['/tickets'])
     } else {
       // TODO: Warn user
     }
