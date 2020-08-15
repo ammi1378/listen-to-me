@@ -1,5 +1,4 @@
-import { environment } from './../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,10 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RestClientService {
-  private baseUrl = environment.apiUrl;
+  private baseUrl = '/v1/';
   constructor(private httpClient: HttpClient) {}
 
+  private createHeaders() {
+    const header = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return header;
+  }
+
   public get<T>(url: string): Observable<T> {
-    return this.httpClient.get<T>(this.baseUrl + '');
+    return this.httpClient.get<T>(this.baseUrl + url, {
+      headers: this.createHeaders()
+    });
   }
 }
