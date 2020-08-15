@@ -1,3 +1,4 @@
+import { Ticket } from './../shared/model/tickets.model';
 import { TicketsService } from './tickets.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tickets.component.scss']
 })
 export class TicketsComponent implements OnInit {
-  public tickets = [];
+  public tickets: Ticket[] = [];
   constructor(private ticketsService: TicketsService) { }
 
   ngOnInit(): void {

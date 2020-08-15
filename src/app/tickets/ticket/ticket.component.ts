@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Ticket } from './../../shared/model/tickets.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.scss']
+  styleUrls: ['./ticket.component.scss'],
 })
 export class TicketComponent implements OnInit {
+  @Input() ticket: Ticket;
+  constructor(private router: Router) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  public goToTicketDetail(ticketId) {
+    this.router.navigate(['/', 'tickets', ticketId]);
   }
-
 }

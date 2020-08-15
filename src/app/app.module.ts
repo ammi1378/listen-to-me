@@ -8,11 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Added components
 import { WelcomeComponent } from './welcome/welcome.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { TicketComponent } from './tickets/ticket/ticket.component';
 
 // Angular material modules
 import {MatInputModule} from '@angular/material/input';
-import { TicketsComponent } from './tickets/tickets.component';
-import { TicketComponent } from './tickets/ticket/ticket.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,8 @@
   </div>
 
   <div class="container-body">
-      
+    <div class="ticket-cards-container">
+      <app-ticket [ticket]="ticket" *ngFor="let ticket of tickets"></app-ticket>
+    </div>
   </div>
 </div>
