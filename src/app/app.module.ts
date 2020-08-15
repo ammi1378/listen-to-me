@@ -11,13 +11,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
 // Angular material modules
 import {MatInputModule} from '@angular/material/input';
 import { TicketsComponent } from './tickets/tickets.component';
+import { TicketComponent } from './tickets/ticket/ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     TicketsComponent,
-
+    TicketComponent
   ],
   imports: [
     BrowserModule,
