@@ -1,6 +1,7 @@
+import { Priorities } from './../../shared/enum/priority.enum';
 import { Router } from '@angular/router';
 import { Ticket } from './../../shared/model/tickets.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ticket',
@@ -9,11 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
   @Input() ticket: Ticket;
+  @Output() onTicketSelect: EventEmitter<Ticket> = new EventEmitter<Ticket>();
+
+  public prioritiesEnum = Priorities;
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  public goToTicketDetail(ticketId) {
-    this.router.navigate(['/', 'tickets', ticketId]);
+  public selectTicket() {
+    this.onTicketSelect.emit(this.ticket);
   }
 }

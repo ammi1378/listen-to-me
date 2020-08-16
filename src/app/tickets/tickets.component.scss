@@ -1,3 +1,10 @@
-.ticket-cards-container {
-    width: 50%;
+
+
+.container-body {
+    display: flex;
+    justify-content: center;
+    .ticket-cards-container, .selected-ticket {
+        width: 50%;
+    }
+
 }

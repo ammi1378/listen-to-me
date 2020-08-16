@@ -6,14 +6,16 @@
   </ng-template>
   <div class="container-header" *ngIf="tickets.length; else noTicketHeader">
     <h2 class="page-header">
-      Welcome to listen to me ticketing system.<br />
-      Please insert your email to begin.
+      Select your ticket!
     </h2>
   </div>
 
   <div class="container-body">
-    <div class="ticket-cards-container">
-      <app-ticket [ticket]="ticket" *ngFor="let ticket of tickets"></app-ticket>
+    <div class="ticket-cards-container" *ngIf="!selectedTicket">
+      <app-ticket [ticket]="ticket" *ngFor="let ticket of tickets" (onTicketSelect)="selectTicket($event)"></app-ticket>
+    </div>
+    <div class="selected-ticket" *ngIf="selectedTicket">
+      <app-ticket-detail [ticket]="selectedTicket"></app-ticket-detail>
     </div>
   </div>
 </div>

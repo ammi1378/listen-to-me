@@ -1,0 +1,29 @@
+<div class="ticket-detail-container">
+  <div class="ticket-detail-header">
+    <h2>{{ ticket.subject }}</h2>
+    <span>{{ ticket.modifiedAt | date }}</span>
+  </div>
+
+  <div class="ticket-detail-body">
+    <div class="messages-container">
+      <div
+        class="message-container"
+        [ngClass]="{
+          left: comment.owner.startsWith('support'),
+          right: !comment.owner.startsWith('support')
+        }"
+        *ngFor="let comment of ticket.comments"
+      >
+        <div class="message-box">{{ comment.content }}</div>
+      </div>
+    </div>
+    <div class="message-input">
+      <input placeholder="message text" class="message-text" />
+      <button class="send-btn" mat-fab color="primary">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+          send
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

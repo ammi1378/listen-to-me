@@ -5,20 +5,24 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
-  styleUrls: ['./tickets.component.scss']
+  styleUrls: ['./tickets.component.scss'],
 })
 export class TicketsComponent implements OnInit {
   public tickets: Ticket[] = [];
-  constructor(private ticketsService: TicketsService) { }
+  public selectedTicket: Ticket;
+  constructor(private ticketsService: TicketsService) {}
 
   ngOnInit(): void {
     this.getTickets();
   }
 
   public getTickets() {
-    this.ticketsService.getTickets().subscribe(tickets => {
+    this.ticketsService.getTickets().subscribe((tickets) => {
       this.tickets = tickets.tickets;
-    })
+    });
   }
 
+  public selectTicket(selectedTicket: Ticket) {
+    this.selectedTicket = selectedTicket;
+  }
 }

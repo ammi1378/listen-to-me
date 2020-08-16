@@ -1,15 +1,25 @@
 <mat-card class="ticket-card">
-    <mat-card-header>
-      <div mat-card-avatar></div>
-      <mat-card-title>{{ticket.subject}}</mat-card-title>
-      <mat-card-subtitle>{{ticket.modifiedAt | date: 'short' }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{ticket.content.length > 100 ? ticket.content.slice(0,10) + '...': ticket.content}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="goToTicketDetail(ticket.ID)">LIKE</button>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon>
+        {{prioritiesEnum[ticket.importanceLevel ]}}
+      </mat-icon>
+    </div>
+    <mat-card-title>{{ ticket.subject }}</mat-card-title>
+    <mat-card-subtitle>{{
+      ticket.modifiedAt | date: "short"
+    }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{
+        ticket.content.length > 100
+          ? ticket.content.slice(0, 10) + "..."
+          : ticket.content
+      }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="selectTicket()">LIKE</button>
+  </mat-card-actions>
+</mat-card>

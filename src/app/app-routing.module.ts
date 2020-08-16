@@ -1,3 +1,4 @@
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'tickets',
     component: TicketsComponent
+  },
+  {
+    path: 'tickets/:id',
+    component: TicketDetailComponent
   },
   {
     path: '**',
