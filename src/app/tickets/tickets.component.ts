@@ -25,4 +25,8 @@ export class TicketsComponent implements OnInit {
   public selectTicket(selectedTicket: Ticket) {
     this.selectedTicket = selectedTicket;
   }
+
+  public backToTickets() {
+    this.selectedTicket = null;
+  }
 }

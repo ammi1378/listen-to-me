@@ -1,5 +1,13 @@
 .ticket-detail-container {
+  padding-top: 7rem;
   .ticket-detail-header {
+    button {
+      width: 3rem;
+      height: 3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;  
+    }
     h2 {
       margin-bottom: 0;
     }

@@ -1,21 +1,27 @@
 <div class="container" *ngIf="tickets">
-  <ng-template #noTicketHeader>
-    <h2 class="page-header">
-      Please fill a ticket!
-    </h2>
-  </ng-template>
-  <div class="container-header" *ngIf="tickets.length; else noTicketHeader">
-    <h2 class="page-header">
-      Select your ticket!
-    </h2>
-  </div>
+  <ng-container *ngIf="!selectedTicket">
+    <ng-template #noTicketHeader>
+      <h2 class="page-header">
+        Please fill a ticket!
+      </h2>
+    </ng-template>
+    <div class="container-header" *ngIf="tickets.length; else noTicketHeader">
+      <h2 class="page-header">
+        Select your ticket!
+      </h2>
+    </div>
+  </ng-container>
 
   <div class="container-body">
     <div class="ticket-cards-container" *ngIf="!selectedTicket">
-      <app-ticket [ticket]="ticket" *ngFor="let ticket of tickets" (onTicketSelect)="selectTicket($event)"></app-ticket>
+      <app-ticket
+        [ticket]="ticket"
+        *ngFor="let ticket of tickets"
+        (onTicketSelect)="selectTicket($event)"
+      ></app-ticket>
     </div>
     <div class="selected-ticket" *ngIf="selectedTicket">
-      <app-ticket-detail [ticket]="selectedTicket"></app-ticket-detail>
+      <app-ticket-detail [ticket]="selectedTicket" (onCloseConversation)="backToTickets()"></app-ticket-detail>
     </div>
   </div>
 </div>

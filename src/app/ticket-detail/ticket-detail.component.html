@@ -1,6 +1,10 @@
 <div class="ticket-detail-container">
   <div class="ticket-detail-header">
-    <h2>{{ ticket.subject }}</h2>
+    <h2>
+      <button mat-icon-button (click)="closeConversation()">
+        <mat-icon>arrow_back_ios </mat-icon></button
+      >{{ ticket.subject }}
+    </h2>
     <span>{{ ticket.modifiedAt | date }}</span>
   </div>
 
